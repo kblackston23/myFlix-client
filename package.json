@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/kblackston23/myFlix-client/issues"
   },
-  "homepage": "https://github.com/kblackston23/myFlix-client#readme"
+  "homepage": "https://github.com/kblackston23/myFlix-client#readme",
+  "devDependencies": {
+    "parcel": "^2.2.1"
+  }
 }
