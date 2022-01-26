@@ -14,20 +14,28 @@ class MainView extends React.Component {
         {_id: 3, Title: 'The Wind Rises', Description: 'Desc 3', ImagePath: 'img3.png'}
       ],
       selectedMovie: null
-    };
+    }
+  }
+
+  setSelectedMovie(newSelectedMovie) {
+    this.setState({
+      selectedMovie: newSelectedMovie
+    });
   }
 
   render() {
     const { movies, selectedMovie } = this.state;
   
-    if (selectedMovie) return <MovieView movie={selectedMovie} />;
-  
     if (movies.length === 0) return <div className="main-view">The list is empty!</div>;
   
     return (
       <div className="main-view">
-        <button onClick={() => {alert('Nice!')}}>Click me!</button>
-        {movies.map(movie => <MovieCard key={movie._id} movie={movie}/>)}
+        {selectedMovie
+          ? <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
+          : movies.map(movie => (
+            <MovieCard key={movie._id} movie={movie} onMovieClick={(movie) => { this.setSelectedMovie(movie) }}/>
+          ))
+        }
       </div>
     );
   }
