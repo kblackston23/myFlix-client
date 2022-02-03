@@ -1,5 +1,9 @@
-$color: steelblue;
+$main-color: red;
+$text-color: white;
+$background-color: #21262c;
 
-.my-flix {
-  color: $color;
+* {
+  box-sizing: border-box;
+  background-color: $background-color;
+  color: $text-color;
 }

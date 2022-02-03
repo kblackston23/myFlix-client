@@ -1,0 +1,25 @@
+$main-color: red;
+$text-color: white;
+$background-color: #0d1a26;
+
+#movie-card {
+}
+
+#movie-title {
+  font-size: 28px;
+}
+
+#movie-description {
+  max-height: 75%;
+  font-size: 16px;
+}
+
+#open-button {
+  font-size: 18px;
+  background-color: $main-color;
+  color: $text-color;
+  border: none;
+  margin: 8px;
+  padding: 6px;
+  border-radius: 20%;
+}

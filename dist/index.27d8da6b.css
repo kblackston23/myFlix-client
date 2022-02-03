@@ -1,13 +1,62 @@
+#login-button {
+  background-color: red;
+  border: none;
+  color: white;
+  margin-top: 10px;
+}
 button {
   color: steelblue;
 }
-
-
-button {
-  color: steelblue;
+#movie-title {
+  font-size: 28px;
 }
 
-.my-flix {
-  color: steelblue;
+#movie-description {
+  max-height: 75%;
+  font-size: 16px;
+}
+
+#open-button {
+  font-size: 18px;
+  background-color: red;
+  color: white;
+  border: none;
+  margin: 8px;
+  padding: 6px;
+  border-radius: 20%;
+}
+#movie__img {
+  max-height: 600px;
+  max-width: 100%;
+}
+
+.movie__title {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.movie__header {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.movie__text {
+  font-size: 16px;
+}
+
+#back-button {
+  font-size: 18px;
+  background-color: red;
+  color: white;
+  border: none;
+  margin: 8px;
+  padding: 6px;
+  border-radius: 20%;
+}
+
+* {
+  box-sizing: border-box;
+  background-color: #21262c;
+  color: white;
 }
 /*# sourceMappingURL=index.27d8da6b.css.map */
