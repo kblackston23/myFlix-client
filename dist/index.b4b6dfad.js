@@ -27335,6 +27335,7 @@ class MovieCard extends _reactDefault.default.Component {
             id: "movie-card",
             children: [
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_cardDefault.default.Img, {
+                    id: "movie-image",
                     variant: "top",
                     src: movie.ImagePath
                 }, void 0, false, {
@@ -27353,8 +27354,8 @@ class MovieCard extends _reactDefault.default.Component {
                             columnNumber: 9
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_cardDefault.default.Text, {
-                            id: "movie-description",
-                            children: movie.Description
+                            id: "movie-genre",
+                            children: movie.Genre.Name
                         }, void 0, false, {
                             fileName: "src/components/movie-card/movie-card.jsx",
                             lineNumber: 16,
@@ -27580,6 +27581,12 @@ class MovieView extends _reactDefault.default.Component {
                     lineNumber: 26,
                     columnNumber: 9
                 }, this),
+                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("br", {
+                }, void 0, false, {
+                    fileName: "src/components/movie-view/movie-view.jsx",
+                    lineNumber: 28,
+                    columnNumber: 15
+                }, this),
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
                     className: "movie-title",
                     children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
@@ -27594,6 +27601,12 @@ class MovieView extends _reactDefault.default.Component {
                     fileName: "src/components/movie-view/movie-view.jsx",
                     lineNumber: 29,
                     columnNumber: 9
+                }, this),
+                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("br", {
+                }, void 0, false, {
+                    fileName: "src/components/movie-view/movie-view.jsx",
+                    lineNumber: 31,
+                    columnNumber: 15
                 }, this),
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
                     className: "movie-description",
