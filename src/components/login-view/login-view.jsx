@@ -18,7 +18,12 @@ export function LoginView(props) {
   };
 
   return (
-    <><Form>
+    <>
+    <div>
+      <h1>Welcome to myFlix!</h1>
+        <p>Please log in to continue.</p>
+    </div>
+    <Form>
     <Form.Group controlId="formUsername">
       <Form.Label>Username:</Form.Label>
       <Form.Control type="text" onChange={e => setUsername(e.target.value)} />
