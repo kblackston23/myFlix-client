@@ -24,16 +24,14 @@ class MainView extends React.Component {
     };
   }
 
-  componentDidMount(){
-    axios.get('https://movies-api23.herokuapp.com/movies')
-      .then(response => {
-        this.setState({
-          movies: response.data
-        });
-      })
-      .catch(error => {
-       console.log(error);
-     });
+  componentDidMount() {
+    let accessToken = localStorage.getItem('token');
+    if (accessToken !== null) {
+      this.setState({
+        user: localStorage.getItem('user')
+      });
+      this.getMovies(accessToken);
+    }
   }
 
   setSelectedMovie(newSelectedMovie) {
@@ -75,7 +73,6 @@ getMovies(token) {
         });
 }
 
-
   onRegister(registered, user) {
     this.setState({
       registered,
@@ -91,20 +88,24 @@ getMovies(token) {
     if (movies.length === 0) return <div className="main-view" />;
   
     return (
+      <>
+      <div><h1 class="header-title">Welcome to myFlix!</h1>
+      <h3 class="movie-list-title">Movie List:</h3>
+      </div>
       <Row className="main-view justify-content-md-center">
         {selectedMovie
           ? (
             <Col md={8}>
-              <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
+              <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); } } />
             </Col>
           )
           : movies.map(movie => (
-            <Col md={3}>
-              <MovieCard key={movie._id} movie={movie} onMovieClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
+            <Col md={4}>
+              <MovieCard key={movie._id} movie={movie} onMovieClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); } } />
             </Col>
-          ))
-        }
-      </Row>
+          ))}
+      </Row>< br />
+      <div><button id="logout-button" onClick={() => { this.onLoggedOut(); } }>Logout</button></div></>
     );
   }
 }
