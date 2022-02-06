@@ -100,7 +100,20 @@ getMovies(token) {
             return <Col md={8}>
               <MovieView movie={movies.find(m => m._id === match.params.movieId)} />
             </Col>
-          }} /></Routes>
+          }} />
+          <Route path="/directors/:name" render={({ match }) => {
+            if (movies.length === 0) return <div className="main-view" />;
+            return <Col md={8}>
+              <DirectorView director={movies.find(m => m.Director.Name === match.params.name).Director} />
+              </Col>
+            }} />
+          <Route path="/genres/:name" render={({ match }) => {
+            if (movies.length === 0) return <div className="main-view" />;
+            return <Col md={8}>
+              <GenreView genre={movies.find(m => m.Genre.Name === match.params.name).Genre} />
+              </Col>
+            }} />
+          </Routes>
 
         </Row>
       </Router>< br />
