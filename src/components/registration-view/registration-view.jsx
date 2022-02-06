@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import './registration-view.scss';
@@ -59,7 +60,7 @@ export function RegistrationView(props) {
             })
             .catch(response => {
                 console.error(response);
-                alert('Unable to register');
+                alert('An error occured when registering');
             });
     }
   };
@@ -75,7 +76,7 @@ export function RegistrationView(props) {
       </Form.Group>
       <Form.Group>
         <Form.Label>Password:</Form.Label>
-        <Form.Control type="password" value={password} onChange={e => setPassword(e.target.value)} minLength="8" placeholder="Your password must be 8 or more characters" />
+        <Form.Control type="password" value={password} onChange={e => setPassword(e.target.value)} minLength="8" placeholder="Your password must be 6 or more characters" />
         {/* code added here to display validation error */}
         {passwordErr && <p>{passwordErr}</p>}
       </Form.Group>

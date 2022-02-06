@@ -69,11 +69,7 @@ const handleSubmit = (e) => {
       <Button id="login-button" variant="primary" type="submit" onClick={handleSubmit}>
         Submit
         </Button>
-    </Form>
-    <div><br />
-      <span>Need to create an account?</span><br />
-      <button type="submit">Register Here</button>
-    </div></>
+    </Form></>
   );
 }
 
