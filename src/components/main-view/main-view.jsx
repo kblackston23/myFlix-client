@@ -73,13 +73,6 @@ getMovies(token) {
         });
 }
 
-  onRegister(registered, user) {
-    this.setState({
-      registered,
-      user
-    });
-  }
-
   render() {
     const { movies, selectedMovie, user } = this.state;
 
