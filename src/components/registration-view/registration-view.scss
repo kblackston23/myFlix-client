@@ -1,5 +1,8 @@
-$buttonColor: steelblue;
+$buttonColor: red;
 
-button {
-  color: $buttonColor;
+#register-button {
+  background-color: $buttonColor;
+  border: none;
+  color: white;
+  margin-top: 10px;
 }
