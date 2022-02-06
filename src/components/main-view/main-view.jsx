@@ -1,12 +1,11 @@
 import React from 'react';
 import axios from 'axios';
 
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import { LoginView } from '../login-view/login-view';
-
 import { RegistrationView } from '../registration-view/registration-view'
-
 import { MovieCard } from '../movie-card/movie-card';
-
 import { MovieView } from '../movie-view/movie-view';
 
 import Row from 'react-bootstrap/Row';
@@ -76,8 +75,11 @@ getMovies(token) {
   render() {
     const { movies, selectedMovie, user } = this.state;
 
-    if(!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
-  
+    if (!user) return <Row>
+      <Col>
+        <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+      </Col>
+    </Row>
     if (movies.length === 0) return <div className="main-view" />;
   
     return (
@@ -85,19 +87,23 @@ getMovies(token) {
       <div><h1 class="header-title">Welcome to myFlix!</h1>
       <h3 class="movie-list-title">Movie List:</h3>
       </div>
-      <Row className="main-view justify-content-md-center">
-        {selectedMovie
-          ? (
-            <Col md={8}>
-              <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); } } />
+      <Router>
+        <Row className="main-view justify-content-md-center"><Routes>
+          <Route exact path="/" render={() => {
+            return movies.map(m => (
+              <Col md={3} key={m._id}>
+                <MovieCard movie={m} />
+              </Col>
+            ))
+          }} />
+          <Route path="/movies/:movieId" render={({ match }) => {
+            return <Col md={8}>
+              <MovieView movie={movies.find(m => m._id === match.params.movieId)} />
             </Col>
-          )
-          : movies.map(movie => (
-            <Col md={4}>
-              <MovieCard key={movie._id} movie={movie} onMovieClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); } } />
-            </Col>
-          ))}
-      </Row>< br />
+          }} /></Routes>
+
+        </Row>
+      </Router>< br />
       <div><button id="logout-button" onClick={() => { this.onLoggedOut(); } }>Logout</button></div></>
     );
   }
