@@ -157,14 +157,13 @@ export class ProfileView extends React.Component {
         }
 
         return (
-            <Container className="profile-view" align="center">
+            <Container>
                 <Row>
                     <Col>
-                        <Card className="update-profile">
+                        <Card>
                             <Card.Body>
                                 <Card.Title>Profile</Card.Title>
                                 <Form
-                                    className="update-form"
                                     onSubmit={(e) =>
                                         this.editUser(
                                             e,
@@ -229,7 +228,7 @@ export class ProfileView extends React.Component {
                         </Card>
                     </Col>
                 </Row>
-                <Row style={{ marginTop: "20px" }}>
+                <Row>
                     <Col>
                         <h4>{Username} Favorite Movies</h4>
                     </Col>
@@ -240,7 +239,7 @@ export class ProfileView extends React.Component {
                             {FavoriteMovies.length === 0 && (
                                 <div>No Favorite Movies</div>
                             )}
-                            <Row className="favorite-container">
+                            <Row>
                                 {FavoriteMovies.length > 0 &&
                                     movies.map((movie) => {
                                         if (
@@ -248,9 +247,8 @@ export class ProfileView extends React.Component {
                                             FavoriteMovies.find((fav) => fav === movie._id)
                                         ) {
                                             return (
-                                                <Card className="favorite-movie card-content" key={movie._id} >
+                                                <Card key={movie._id} >
                                                     <Card.Img
-                                                        className="fav-poster"
                                                         variant="top"
                                                         src={movie.ImagePath}
                                                     />
