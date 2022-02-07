@@ -19,7 +19,7 @@ export function NavbarView ({user}) {
   }
 
   return (
-    <Navbar id="main-nav" sticky="top" bg="dark" expand="lg" variant="dark">
+    <Navbar className="main-nav" sticky="top" bg="dark" expand="lg" variant="dark">
       <Container>
         <Navbar.Brand className="navbar-logo" href="/">myFlix</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
