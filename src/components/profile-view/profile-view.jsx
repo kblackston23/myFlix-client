@@ -10,10 +10,10 @@ export class ProfileView extends React.Component {
         super();
 
         this.state = {
-            Username: null,
-            Password: null,
-            Email: null,
-            Birthday: null,
+            Username: '',
+            Password: '',
+            Email: '',
+            Birthday: '',
             FavoriteMovies: [],
         };
     }
@@ -34,8 +34,7 @@ export class ProfileView extends React.Component {
 
     getUser = (token) => {
         const Username = localStorage.getItem('user');
-        axios
-            .get(`https://movies-api23.herokuapp.com/users/${Username}`, {
+        axios.get(`https://movies-api23.herokuapp.com/users/${Username}`, {
                 headers: { Authorization: `Bearer ${token}` },
             })
             .then((response) => {
@@ -51,14 +50,13 @@ export class ProfileView extends React.Component {
                 console.log(error);
             });
     };
-    // Allow user to edit or update profile
+ 
     editUser = (e) => {
         e.preventDefault();
         const Username = localStorage.getItem('user');
         const token = localStorage.getItem('token');
 
-        axios
-            .put(
+        axios.put(
                 `https://movies-api23.herokuapp.com/users/${Username}`,
                 {
                     Username: this.state.Username,
@@ -87,15 +85,13 @@ export class ProfileView extends React.Component {
             });
     };
 
-    // Delete a movie from FavoriteMovies list
     onRemoveFavorite = (e, movie) => {
         e.preventDefault();
         const Username = localStorage.getItem('user');
         const token = localStorage.getItem('token');
 
-        axios
-            .delete(
-                `https://movies-api23.herokuapp.com/users/${Username}/movies/${movie._id}`,
+        axios.delete(
+                `https://movies-api23.herokuapp.com/users/${user}/movies/${movie._id}`,
                 {
                     headers: { Authorization: `Bearer ${token}` },
                 }
@@ -115,8 +111,7 @@ export class ProfileView extends React.Component {
         const Username = localStorage.getItem('user');
         const token = localStorage.getItem('token');
 
-        axios
-            .delete(`https://movies-api23.herokuapp.com/users/${Username}`, {
+        axios.delete(`https://movies-api23.herokuapp.com/users/${Username}`, {
                 headers: { Authorization: `Bearer ${token}` },
             })
             .then((response) => {
@@ -276,7 +271,7 @@ export class ProfileView extends React.Component {
                     </Col>
                 </Row>
                 <div className="backButton">
-                    <Button variant="outline-primary" onClick={() => { onBackClick(null); }}>Back</Button>
+                    <Button variant="outline-primary" onClick={() => { onBackClick(); }}>Back</Button>
                 </div>
                 <br />
             </Container>

@@ -10,33 +10,21 @@ export class GenreView extends React.Component {
 
         return (
             <Container>
-                <Card>
+                <Card className="genre-card">
                     <Card.Body>
                         <Card.Title>Genre</Card.Title>
                         <Card.Text>
-                            <span className="label">Name: </span>
+                            <span className="genre-info">Name: </span>
                             <span className="value">{genre.Name}</span>
                         </Card.Text>
                         <Card.Text>
-                            <span className="label">Description: </span>
+                            <span className="genre-info">Description: </span>
                             <span className="value">{genre.Description}</span>
                         </Card.Text>
 
-                        <Button variant="outline-light" onClick={() => { onBackClick(); }}>Back</Button>
+                        <Button id="back-button" variant="outline-light" onClick={() => { onBackClick(); }}>Back</Button>
                     </Card.Body>
                 </Card>
-                <Row>
-                    {movies.map(movie => (
-                        <Card className="favorite-movie card-content" key={movie._id} >
-                            <Card.Img className="" variant="top" src={movie.ImagePath} />
-                            <Card.Body>
-                                <Card.Title className="">
-                                    {movie.Title}
-                                </Card.Title>
-                            </Card.Body>
-                        </Card>
-                    ))}
-                </Row>
             </Container>
         );
     }
