@@ -56,8 +56,7 @@ export class ProfileView extends React.Component {
         const Username = localStorage.getItem('user');
         const token = localStorage.getItem('token');
 
-        axios.put(
-                `https://movies-api23.herokuapp.com/users/${Username}`,
+        axios.put(`https://movies-api23.herokuapp.com/users/${Username}`,
                 {
                     Username: this.state.Username,
                     Password: this.state.Password,
@@ -98,7 +97,7 @@ export class ProfileView extends React.Component {
             )
             .then((response) => {
                 console.log(response);
-                alert("Movie removed");
+                alert("Movie removed from favorites");
                 this.componentDidMount();
             })
             .catch(function (error) {
@@ -106,7 +105,6 @@ export class ProfileView extends React.Component {
             });
     };
 
-    // Deregister
     onDeleteUser() {
         const Username = localStorage.getItem('user');
         const token = localStorage.getItem('token');

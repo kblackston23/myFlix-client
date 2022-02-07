@@ -69,7 +69,7 @@ getMovies(token) {
 }
 
   render() {
-    const { movies, user } = this.state;
+    const { movies, user, Username } = this.state;
   
     return (
         <Router>
