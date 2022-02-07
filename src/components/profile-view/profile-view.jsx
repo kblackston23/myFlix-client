@@ -238,7 +238,7 @@ export class ProfileView extends React.Component {
                     <Col>
                         <Card.Body>
                             {FavoriteMovies.length === 0 && (
-                                <div className="text-center">No Favorite Movies</div>
+                                <div>No Favorite Movies</div>
                             )}
                             <Row className="favorite-container">
                                 {FavoriteMovies.length > 0 &&
@@ -254,11 +254,11 @@ export class ProfileView extends React.Component {
                                                         variant="top"
                                                         src={movie.ImagePath}
                                                     />
-                                                    <Card.Body style={{ backgroundColor: "black" }}>
+                                                    <Card.Body>
                                                         <Card.Title className="movie_title">
                                                             {movie.Title}
                                                         </Card.Title>
-                                                        <Button size="sm" variant="danger" value={movie._id} onClick={(e) => this.onRemoveFavorite(e, movie)}>Remove</Button>
+                                                        <Button size="sm" variant="danger" value={movie._id} onClick={(e) => this.onRemoveFavorite(e, movie)}>Remove from favorties</Button>
                                                     </Card.Body>
                                                 </Card>
                                             );
@@ -268,10 +268,7 @@ export class ProfileView extends React.Component {
                         </Card.Body>
                     </Col>
                 </Row>
-                <div className="backButton">
                     <Button variant="outline-primary" onClick={() => { onBackClick(); }}>Back</Button>
-                </div>
-                <br />
             </Container>
         );
     }

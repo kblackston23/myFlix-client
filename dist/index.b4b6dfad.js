@@ -35052,7 +35052,6 @@ class ProfileView extends _reactDefault.default.Component {
                         children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Body, {
                             children: [
                                 FavoriteMovies.length === 0 && /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                                    className: "text-center",
                                     children: "No Favorite Movies"
                                 }, void 0, false, {
                                     fileName: "src/components/profile-view/profile-view.jsx",
@@ -35076,9 +35075,6 @@ class ProfileView extends _reactDefault.default.Component {
                                                     columnNumber: 53
                                                 }, this),
                                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Body, {
-                                                    style: {
-                                                        backgroundColor: "black"
-                                                    },
                                                     children: [
                                                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Title, {
                                                             className: "movie_title",
@@ -35094,7 +35090,7 @@ class ProfileView extends _reactDefault.default.Component {
                                                             value: movie._id,
                                                             onClick: (e)=>this.onRemoveFavorite(e, movie)
                                                             ,
-                                                            children: "Remove"
+                                                            children: "Remove from favorties"
                                                         }, void 0, false, {
                                                             fileName: "src/components/profile-view/profile-view.jsx",
                                                             lineNumber: 261,
@@ -35134,29 +35130,16 @@ class ProfileView extends _reactDefault.default.Component {
                     lineNumber: 237,
                     columnNumber: 17
                 }, this),
-                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                    className: "backButton",
-                    children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
-                        variant: "outline-primary",
-                        onClick: ()=>{
-                            onBackClick();
-                        },
-                        children: "Back"
-                    }, void 0, false, {
-                        fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 272,
-                        columnNumber: 21
-                    }, this)
+                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
+                    variant: "outline-primary",
+                    onClick: ()=>{
+                        onBackClick();
+                    },
+                    children: "Back"
                 }, void 0, false, {
                     fileName: "src/components/profile-view/profile-view.jsx",
                     lineNumber: 271,
-                    columnNumber: 17
-                }, this),
-                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("br", {
-                }, void 0, false, {
-                    fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 274,
-                    columnNumber: 17
+                    columnNumber: 21
                 }, this)
             ]
         }, void 0, true, {
