@@ -16,10 +16,10 @@ export function NavbarView ({user}) {
     } else {
       return false;
     }
-  };
+  }
 
   return (
-    <Navbar className="main-nav" sticky="top" bg="dark" expand="lg" variant="dark">
+    <Navbar id="main-nav" sticky="top" bg="dark" expand="lg" variant="dark">
       <Container>
         <Navbar.Brand className="navbar-logo" href="/">myFlix</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -30,7 +30,7 @@ export function NavbarView ({user}) {
                         )}
                         {isAuth() && (
                             <Button variant="link" onClick={() => {
-                                this.onLoggedOut() }}>Logout</Button>
+                                onLoggedOut() }}>Logout</Button>
                         )}
                         {!isAuth() && (
                             <Nav.Link href="/">Login</Nav.Link>

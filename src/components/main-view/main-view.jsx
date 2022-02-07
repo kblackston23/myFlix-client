@@ -82,7 +82,7 @@ getMovies(token) {
                 return <div className="main-view" />;
 
               return movies.map(movie => (
-                <Col md={3} key={movie._id}>
+                <Col md={4} key={movie._id}>
                   <MovieCard movie={movie} />
                 </Col>
               ));
@@ -94,11 +94,11 @@ getMovies(token) {
                 <RegistrationView />
               </Col>;
             } } />
-            <Route path="/movies/:id" render={({ match, history }) => {
+            <Route path="/movies/:movieId" render={({ match, history }) => {
               if (!user)
                 return <Col> <LoginView mvoies={movies} onLoggedIn={user => this.onLoggedIn(user)} /></Col>;
               return <Col md={8}>
-                <MovieView movie={movies.find(movie => movie._id === match.params.id)} onBackClick={() => history.goBack()} />
+                <MovieView movie={movies.find(movie => movie._id === match.params.movieId)} onBackClick={() => history.goBack()} />
               </Col>;
             } } />
             <Route path="/directors/:name" render={({ match, history }) => {

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
+import { Container, Row, Col, Button } from 'react-bootstrap';
 
 import './movie-view.scss';
 
@@ -23,13 +24,13 @@ export class MovieView extends React.Component {
     const { movie, onBackClick } = this.props;
 
     return (
-      <div className="movie-view">
+        <div className="movie-view">
         <div className="movie-poster">
           <img id="movie__img" src={movie.ImagePath} />
-        </div><br />
+        </div>
         <div className="movie-title">
           <span className="movie__title">{movie.Title}</span>
-        </div><br />
+        </div>
         <div className="movie-description">
           <span className="movie__header">Description: </span>
           <span className="movie__text">{movie.Description}</span>
@@ -38,19 +39,18 @@ export class MovieView extends React.Component {
           <span className="movie__header">Genre: </span>
           <span className="movie__text">{movie.Genre.Name}</span>
           <Link to={`/genres/${movie.Genre.Name}`}>
-          <Button variant="link">View Genre Info</Button>
+            <Button variant="link">View Genre Info</Button>
           </Link>
         </div>
         <div className="movie-director">
           <span className="movie__header">Director: </span>
           <span className="movie__text">{movie.Director.Name}</span>
           <Link to={`/directors/${movie.Director.Name}`}>
-          <Button variant="link">View Director Info</Button>
+            <Button variant="link">View Director Info</Button>
           </Link>
         </div>
-        <button id="back-button" onClick={() => { onBackClick(null); }}>Back</button>
-
-       </div>
+      <button id="back-button" onClick={() => { onBackClick(null); } }>Back</button>
+      </div>
     );
   }
 }
