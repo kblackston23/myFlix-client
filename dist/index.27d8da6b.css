@@ -70,30 +70,6 @@
   padding: 6px;
   border-radius: 20%;
 }
-#logout-button {
-  font-size: 18px;
-  background-color: red;
-  color: white;
-  border: none;
-  margin-top: 8px;
-  margin-bottom: 25px;
-  padding: 6px;
-  border-radius: 20%;
-}
-
-.header-title {
-  font-size: 32px;
-  font-weight: 700;
-  text-align: center;
-  width: 100%;
-  padding: 20px;
-}
-
-.movie-list-title {
-  font-size: 24px;
-  font-weight: 400;
-  text-align: center;
-}
 .director-card {
   margin-top: 25px;
 }
@@ -152,6 +128,30 @@
 
 .profile-card {
   margin-top: 25px;
+}
+#logout-button {
+  font-size: 18px;
+  background-color: red;
+  color: white;
+  border: none;
+  margin-top: 8px;
+  margin-bottom: 25px;
+  padding: 6px;
+  border-radius: 20%;
+}
+
+.header-title {
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+  width: 100%;
+  padding: 20px;
+}
+
+.movie-list-title {
+  font-size: 24px;
+  font-weight: 400;
+  text-align: center;
 }
 * {
   box-sizing: border-box;
