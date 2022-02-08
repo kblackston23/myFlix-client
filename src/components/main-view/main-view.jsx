@@ -69,7 +69,7 @@ getMovies(token) {
 }
 
   render() {
-    const { movies, user, Username } = this.state;
+    const { movies, user } = this.state;
   
     return (
         <Router>
@@ -102,6 +102,21 @@ getMovies(token) {
                 <MovieView movie={movies.find(movie => movie._id === match.params.movieId)} onBackClick={() => history.goBack()} />
               </Col>;
             } } />
+            <Route path="/profile" render={({ history }) => {
+               if (!user) {
+                  return (
+                  <Col>
+                    <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+                  </Col>
+                  );
+                }
+                return (
+                  <Col>
+                      <ProfileView movies={movies} onBackClick={() => history.goBack()} />
+                  </Col>
+                );
+               }} />
+
             <Route path="/directors/:name" render={({ match, history }) => {
               if (!user)
                 return <Col> <LoginView movies={movies} onLoggedIn={user => this.onLoggedIn(user)} /></Col>;

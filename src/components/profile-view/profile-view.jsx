@@ -1,9 +1,10 @@
 import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
-import './profile-view.scss';
 import { Link } from 'react-router-dom';
 import { Container, Card, Button, Row, Col, Form } from 'react-bootstrap';
+
+import './profile-view.scss';
 
 export class ProfileView extends React.Component {
     constructor() {
@@ -109,7 +110,7 @@ export class ProfileView extends React.Component {
         const Username = localStorage.getItem('user');
         const token = localStorage.getItem('token');
 
-        axios.delete(`https://movies-api23.herokuapp.com/users/${Username}`, {
+        axios.delete(`https://movies-api23.herokuapp.com/users/delete${Username}`, {
                 headers: { Authorization: `Bearer ${token}` },
             })
             .then((response) => {
@@ -160,7 +161,7 @@ export class ProfileView extends React.Component {
             <Container>
                 <Row>
                     <Col>
-                        <Card>
+                        <Card className="profile-card">
                             <Card.Body>
                                 <Card.Title>Profile</Card.Title>
                                 <Form
@@ -219,9 +220,9 @@ export class ProfileView extends React.Component {
                                             onChange={(e) => this.setBirthday(e.target.value)}
                                         />
                                     </Form.Group>
-                                    <div className="mt-3">
-                                        <Button variant="success" type="submit" onClick={this.editUser}>Update User</Button>
-                                        <Button className="ml-3" variant="secondary" onClick={() => this.onDeleteUser()}>Delete User</Button>
+                                    <div>
+                                        <Button id='user-button' onClick={this.editUser}>Update User</Button>
+                                        <Button is='user-button' onClick={() => this.onDeleteUser()}>Delete User</Button>
                                     </div>
                                 </Form>
                             </Card.Body>
@@ -232,7 +233,7 @@ export class ProfileView extends React.Component {
                     <Col>
                         <h4>{Username} Favorite Movies</h4>
                     </Col>
-                </Row>
+                </Row><br />
                 <Row>
                     <Col>
                         <Card.Body>
@@ -253,10 +254,10 @@ export class ProfileView extends React.Component {
                                                         src={movie.ImagePath}
                                                     />
                                                     <Card.Body>
-                                                        <Card.Title className="movie_title">
+                                                        <Card.Title>
                                                             {movie.Title}
                                                         </Card.Title>
-                                                        <Button size="sm" variant="danger" value={movie._id} onClick={(e) => this.onRemoveFavorite(e, movie)}>Remove from favorties</Button>
+                                                        <Button value={movie._id} onClick={(e) => this.onRemoveFavorite(e, movie)}>Remove from favorties</Button>
                                                     </Card.Body>
                                                 </Card>
                                             );
@@ -266,7 +267,7 @@ export class ProfileView extends React.Component {
                         </Card.Body>
                     </Col>
                 </Row>
-                    <Button variant="outline-primary" onClick={() => { onBackClick(); }}>Back</Button>
+                    <Button onClick={() => { onBackClick(); }}>Back</Button>
             </Container>
         );
     }
