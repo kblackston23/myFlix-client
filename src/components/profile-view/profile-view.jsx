@@ -1,7 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { Container, Card, Button, Row, Col, Form } from 'react-bootstrap';
 
 import './profile-view.scss';
@@ -91,14 +89,14 @@ export class ProfileView extends React.Component {
         const token = localStorage.getItem('token');
 
         axios.delete(
-                `https://movies-api23.herokuapp.com/users/${user}/movies/${movie._id}`,
+                `https://movies-api23.herokuapp.com/users/${Username}/movies/${movie._id}`,
                 {
                     headers: { Authorization: `Bearer ${token}` },
                 }
             )
             .then((response) => {
                 console.log(response);
-                alert("Movie removed from favorites");
+                alert("Removed from favorites");
                 this.componentDidMount();
             })
             .catch(function (error) {
@@ -151,7 +149,7 @@ export class ProfileView extends React.Component {
 
     render() {
         const { movies, onBackClick } = this.props;
-        const { FavoriteMovies, Username, Email, Birthday } = this.state;
+        const { FavoriteMovies, Username, Email, Birthdate } = this.state;
 
         if (!Username) {
             return null;
@@ -171,7 +169,7 @@ export class ProfileView extends React.Component {
                                             this.Username,
                                             this.Password,
                                             this.Email,
-                                            this.Birthday
+                                            this.Birthdate
                                         )
                                     }
                                 >
@@ -216,13 +214,13 @@ export class ProfileView extends React.Component {
                                         <Form.Control
                                             type="date"
                                             name="Birthday"
-                                            value={Birthday}
+                                            value={Birthdate}
                                             onChange={(e) => this.setBirthday(e.target.value)}
                                         />
                                     </Form.Group>
                                     <div>
-                                        <Button id='user-button' onClick={this.editUser}>Update User</Button>
-                                        <Button id='user-button' onClick={() => this.onDeleteUser()}>Delete User</Button>
+                                        <Button id='users-button' onClick={this.editUser}>Update User</Button>
+                                        <Button id='users-button' onClick={() => this.onDeleteUser()}>Delete User</Button>
                                     </div>
                                 </Form>
                             </Card.Body>
@@ -272,22 +270,3 @@ export class ProfileView extends React.Component {
         );
     }
 }
-
-ProfileView.propTypes = {
-    movies: PropTypes.arrayOf(PropTypes.shape({
-        Title: PropTypes.string.isRequired,
-        Description: PropTypes.string.isRequired,
-        ImagePath: PropTypes.string.isRequired,
-        Genre: PropTypes.shape({
-            Name: PropTypes.string.isRequired,
-            Description: PropTypes.string.isRequired,
-        }).isRequired,
-        Director: PropTypes.shape({
-            Bio: PropTypes.string.isRequired,
-            Birth: PropTypes.string,
-            Death: PropTypes.string,
-            Name: PropTypes.string.isRequired,
-        }).isRequired,
-    })).isRequired,
-    onBackClick: PropTypes.func.isRequired
-};
