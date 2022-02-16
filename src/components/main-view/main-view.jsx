@@ -58,7 +58,6 @@ getMovies(token) {
       headers: { Authorization: `Bearer ${token}`}
     })
     .then(response => {
-
       this.props.setMovies(response.data);
     })
     .catch(function (error) {

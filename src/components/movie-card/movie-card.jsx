@@ -9,9 +9,10 @@ import './movie-card.scss'
 
 export class MovieCard extends React.Component {
   render() {
-    const { movie, user, updateUser } = this.props;
+    const { movie, updateUser } = this.props;
     const Username = localStorage.getItem('user');
     const token = localStorage.getItem('token');
+    
 
     const onAddToFavorites = (e) => {
       e.preventDefault();
@@ -21,14 +22,13 @@ export class MovieCard extends React.Component {
         })
         .then(response => {
           const data = response.data;
-          console.log(date);
+          console.log(data);
           alert("Added to favorites");
           updateUser(data);
         })
-        .catch(e => {
-          console.log('Error adding movie to favorites');
-          alert('Movie not added to favorites');
-        });
+        .catch(function (error) {
+          console.log(error);
+      });
     };
 
 
