@@ -33551,6 +33551,7 @@ function LoginView(props) {
                     controlId: "formUsername",
                     children: [
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Label, {
+                            id: "form-title",
                             children: "Username:"
                         }, void 0, false, {
                             fileName: "src/components/login-view/login-view.jsx",
@@ -33584,7 +33585,8 @@ function LoginView(props) {
                     controlId: "formPassword",
                     children: [
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Label, {
-                            children: "Password"
+                            id: "form-title",
+                            children: "Password:"
                         }, void 0, false, {
                             fileName: "src/components/login-view/login-view.jsx",
                             lineNumber: 64,
@@ -33592,7 +33594,7 @@ function LoginView(props) {
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Control, {
                             type: "password",
-                            placeholder: "Password",
+                            placeholder: "Enter password",
                             value: password,
                             onChange: (e)=>setPassword(e.target.value)
                         }, void 0, false, {
@@ -34792,7 +34794,7 @@ class ProfileView extends _reactDefault.default.Component {
                                                         columnNumber: 41
                                                     }, this),
                                                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
-                                                        is: "user-button",
+                                                        id: "user-button",
                                                         onClick: ()=>this.onDeleteUser()
                                                         ,
                                                         children: "Delete User"
@@ -34837,9 +34839,10 @@ class ProfileView extends _reactDefault.default.Component {
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Row, {
                     children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Col, {
                         children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("h4", {
+                            id: "header4",
                             children: [
                                 Username,
-                                " Favorite Movies"
+                                "'s Favorite Movies"
                             ]
                         }, void 0, true, {
                             fileName: "src/components/profile-view/profile-view.jsx",
@@ -34940,6 +34943,7 @@ class ProfileView extends _reactDefault.default.Component {
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
+                    id: "back-button",
                     onClick: ()=>{
                         onBackClick();
                     },
@@ -36576,7 +36580,7 @@ function MoviesList(props) {
         columnNumber: 23
     }, this));
     return filteredMovies.map((m)=>/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_colDefault.default, {
-            md: 3,
+            md: 4,
             children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_movieCard.MovieCard, {
                 movie: m
             }, void 0, false, {

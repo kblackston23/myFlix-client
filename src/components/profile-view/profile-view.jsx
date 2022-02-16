@@ -222,7 +222,7 @@ export class ProfileView extends React.Component {
                                     </Form.Group>
                                     <div>
                                         <Button id='user-button' onClick={this.editUser}>Update User</Button>
-                                        <Button is='user-button' onClick={() => this.onDeleteUser()}>Delete User</Button>
+                                        <Button id='user-button' onClick={() => this.onDeleteUser()}>Delete User</Button>
                                     </div>
                                 </Form>
                             </Card.Body>
@@ -231,7 +231,7 @@ export class ProfileView extends React.Component {
                 </Row>
                 <Row>
                     <Col>
-                        <h4>{Username} Favorite Movies</h4>
+                        <h4 id='header4'>{Username}'s Favorite Movies</h4>
                     </Col>
                 </Row><br />
                 <Row>
@@ -267,7 +267,7 @@ export class ProfileView extends React.Component {
                         </Card.Body>
                     </Col>
                 </Row>
-                    <Button onClick={() => { onBackClick(); }}>Back</Button>
+                    <Button id='back-button' onClick={() => { onBackClick(); }}>Back</Button>
             </Container>
         );
     }

@@ -4,6 +4,8 @@ $button-color: white;
 #movie__img {
   max-height: 600px;
   max-width: 100%;
+  margin-top: 25px;
+  margin-bottom: 20px;
 }
 
 .movie__title {
@@ -28,5 +30,5 @@ $button-color: white;
   margin-top: 20px;
   margin-bottom: 25px;
   padding: 6px;
-  border-radius: 20%;
+  border-radius: 5%;
 }
