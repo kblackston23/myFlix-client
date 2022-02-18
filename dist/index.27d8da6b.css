@@ -110,19 +110,6 @@
 #header4 {
   margin-top: 15px;
 }
-.header-title {
-  font-size: 32px;
-  font-weight: 700;
-  text-align: center;
-  width: 100%;
-  padding: 20px;
-}
-
-.movie-list-title {
-  font-size: 24px;
-  font-weight: 400;
-  text-align: center;
-}
 #movie-card {
   max-height: 675px;
   max-width: 90%;
@@ -154,6 +141,19 @@
   margin-right: 10px;
   padding: 6px;
   border-radius: 5%;
+}
+.header-title {
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+  width: 100%;
+  padding: 20px;
+}
+
+.movie-list-title {
+  font-size: 24px;
+  font-weight: 400;
+  text-align: center;
 }
 * {
   box-sizing: border-box;

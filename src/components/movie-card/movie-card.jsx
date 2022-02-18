@@ -9,14 +9,14 @@ import './movie-card.scss'
 
 export class MovieCard extends React.Component {
   render() {
-    const { movie, updateUser } = this.props;
+    const { movie } = this.props;
     const Username = localStorage.getItem('user');
     const token = localStorage.getItem('token');
     
 
     const onAddToFavorites = (e) => {
       e.preventDefault();
-      axios.post(`https://movies-api23.herokuapp.com/users/${Username}/movies/${movie._id}`, {},
+      axios.post(`https://movies-api23.herokuapp.com/users/${Username}/movies/${this.props.movie._id}`, {},
         {
           headers: { Authorization: `Bearer ${token}` },
         })
@@ -24,7 +24,7 @@ export class MovieCard extends React.Component {
           const data = response.data;
           console.log(data);
           alert("Added to favorites");
-          updateUser(data);
+        
         })
         .catch(function (error) {
           console.log(error);
