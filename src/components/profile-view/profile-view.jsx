@@ -233,7 +233,7 @@ export class ProfileView extends React.Component {
                     </Col>
                 </Row><br />
                 <Row>
-                    <Col>
+                    <Col md={5}>
                         <Card.Body>
                             {FavoriteMovies.length === 0 && (
                                 <div>No Favorite Movies</div>
