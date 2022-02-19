@@ -1,10 +1,13 @@
 import React from 'react';
 import axios from 'axios';
 import { Container, Card, Button, Row, Col, Form } from 'react-bootstrap';
+import { connect } from 'react-redux';
+import { setUser, updateUser } from '../../actions/actions';
+
 
 import './profile-view.scss';
 
-export class ProfileView extends React.Component {
+class ProfileView extends React.Component {
     constructor() {
         super();
 
@@ -31,7 +34,7 @@ export class ProfileView extends React.Component {
         window.open('/', '_self');
     }
 
-    getUser = (token) => {
+    getUser(token) {
         const Username = localStorage.getItem('user');
         axios.get(`https://movies-api23.herokuapp.com/users/${Username}`, {
                 headers: { Authorization: `Bearer ${token}` },
@@ -148,7 +151,7 @@ export class ProfileView extends React.Component {
     }
 
     render() {
-        const { movies, onBackClick } = this.props;
+        const { movies, onBackClick, user } = this.props;
         const { FavoriteMovies, Username, Email, Birthdate } = this.state;
 
         if (!Username) {
@@ -270,3 +273,12 @@ export class ProfileView extends React.Component {
         );
     }
 }
+
+let mapStateToProps = state => {
+    return { 
+        user: state.user,
+        movies: state.movies
+   }
+}
+
+export default connect(mapStateToProps, { setUser, updateUser })(ProfileView);

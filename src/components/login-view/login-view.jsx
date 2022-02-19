@@ -46,7 +46,8 @@ const handleSubmit = (e) => {
         props.onLoggedIn(data);
     })
     .catch(e => {
-      console.log('no such user')
+      console.log('Login error');
+      alert('Incorrect login credentials')
     });
   }
 };
