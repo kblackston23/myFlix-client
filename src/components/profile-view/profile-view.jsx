@@ -53,7 +53,7 @@ class ProfileView extends React.Component {
             });
     };
  
-    editUser = (e) => {
+    editUser(e) {
         e.preventDefault();
         const Username = localStorage.getItem('user');
         const token = localStorage.getItem('token');
@@ -86,7 +86,7 @@ class ProfileView extends React.Component {
             });
     };
 
-    onRemoveFavorite = (e, movie) => {
+    onRemoveFavorite(e, movie) {
         e.preventDefault();
         const Username = localStorage.getItem('user');
         const token = localStorage.getItem('token');
@@ -127,28 +127,20 @@ class ProfileView extends React.Component {
     }
 
     setUsername(value) {
-        this.setState({
-            Username: value,
-        });
-    }
-
-    setPassword(value) {
-        this.setState({
-            Password: value,
-        });
-    }
-
-    setEmail(value) {
-        this.setState({
-            Email: value,
-        });
-    }
-
-    setBirthday(value) {
-        this.setState({
-            Birthday: value,
-        });
-    }
+        this.state.Username = value;
+      }
+    
+      setPassword(value) {
+        this.state.Password = value;
+      }
+    
+      setEmail(value) {
+        this.state.Email = value;
+      }
+    
+      setBirthday(value) {
+        this.state.Birthday = value;
+      }
 
     render() {
         const { movies, onBackClick, user } = this.props;
