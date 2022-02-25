@@ -34590,7 +34590,7 @@ class ProfileView extends _reactDefault.default.Component {
     onDeleteUser() {
         const Username = localStorage.getItem('user');
         const token = localStorage.getItem('token');
-        _axiosDefault.default.delete(`https://movies-api23.herokuapp.com/users/delete${Username}`, {
+        _axiosDefault.default.delete(`https://movies-api23.herokuapp.com/users/${Username}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }

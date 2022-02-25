@@ -87,7 +87,7 @@ class ProfileView extends React.Component {
         const Username = localStorage.getItem('user');
         const token = localStorage.getItem('token');
 
-        axios.delete(`https://movies-api23.herokuapp.com/users/delete${Username}`, {
+        axios.delete(`https://movies-api23.herokuapp.com/users/${Username}`, {
                 headers: { Authorization: `Bearer ${token}` },
             })
             .then((response) => {
