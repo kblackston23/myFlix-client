@@ -91,12 +91,10 @@ class ProfileView extends React.Component {
                 headers: { Authorization: `Bearer ${token}` },
             })
             .then((response) => {
-                console.log(response);
                 alert("Profile deleted");
                 localStorage.removeItem('user');
                 localStorage.removeItem('token');
-                this.props.setUser(null);
-                window.open('/', '_self');
+                this.props.updateUser(null);
             })
             .catch(function (error) {
                 console.log(error);

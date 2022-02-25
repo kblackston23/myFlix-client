@@ -23,7 +23,6 @@ function movies(state = [], action) {
 function user(state = '', action) {
     switch (action.type) {
         case SET_USER:
-            console.log('SET_USER reducer reached');
             return action.value;
         case UPDATE_USER:
           return action.value;

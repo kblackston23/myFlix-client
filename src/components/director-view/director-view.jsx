@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import './director-view.scss';
 import {Container, Card, Button, Row} from 'react-bootstrap';
 
