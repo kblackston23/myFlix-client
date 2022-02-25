@@ -4,10 +4,12 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { connect } from 'react-redux';
+import { updateUser } from '../../actions/actions';
 
 import './movie-card.scss'
 
-export class MovieCard extends React.Component {
+class MovieCard extends React.Component {
   render() {
     const { movie } = this.props;
     const Username = localStorage.getItem('user');
@@ -21,8 +23,7 @@ export class MovieCard extends React.Component {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then(response => {
-          const data = response.data;
-          console.log(data);
+          this.props.updateUser(response.data);
           alert("Added to favorites");
         
         })
@@ -55,3 +56,12 @@ MovieCard.propTypes = {
     _id: PropTypes.string.isRequired
   }).isRequired,
 };
+
+let mapStateToProps = state => {
+  return { 
+      user: state.user,
+      movies: state.movies
+ }
+}
+
+export default connect(mapStateToProps, { updateUser })(MovieCard);

@@ -8,17 +8,6 @@ import { setUser, updateUser } from '../../actions/actions';
 import './profile-view.scss';
 
 class ProfileView extends React.Component {
-    constructor() {
-        super();
-
-        this.state = {
-            Username: '',
-            Password: '',
-            Email: '',
-            Birthday: '',
-            FavoriteMovies: [],
-        };
-    }
 
     componentDidMount() {
         const accessToken = localStorage.getItem('token');
@@ -28,9 +17,7 @@ class ProfileView extends React.Component {
     onLoggedOut() {
         localStorage.removeItem('token');
         localStorage.removeItem('user');
-        this.setState({
-            user: null,
-        });
+        this.props.setUser(null);
         window.open('/', '_self');
     }
 
@@ -40,42 +27,31 @@ class ProfileView extends React.Component {
                 headers: { Authorization: `Bearer ${token}` },
             })
             .then((response) => {
-                this.setState({
-                    Username: response.data.Username,
-                    Password: response.data.Password,
-                    Email: response.data.Email,
-                    Birthday: response.data.Birthday,
-                    FavoriteMovies: response.data.FavoriteMovies,
-                });
+                this.props.setUser(response.data)
             })
             .catch(function (error) {
                 console.log(error);
             });
     };
  
-    editUser(e) {
+    editUser(e, username, password, email, birthday) {
         e.preventDefault();
         const Username = localStorage.getItem('user');
         const token = localStorage.getItem('token');
 
         axios.put(`https://movies-api23.herokuapp.com/users/${Username}`,
                 {
-                    Username: this.state.Username,
-                    Password: this.state.Password,
-                    Email: this.state.Email,
-                    Birthday: this.state.Birthday,
+                    Username: username || this.props.user.Username,
+                    Password: password,
+                    Email: email || this.props.user.Email,
+                    Birthday: birthday || this.props.user.birthday,
                 },
                 {
                     headers: { Authorization: `Bearer ${token}` },
                 }
             )
             .then((response) => {
-                this.setState({
-                    Username: response.data.Username,
-                    Password: response.data.Password,
-                    Email: response.data.Email,
-                    Birthday: response.data.Birthday,
-                });
+                this.props.updateUser(response.data);
 
                 localStorage.setItem('user', this.state.Username);
                 alert("Profile updated");
@@ -100,7 +76,7 @@ class ProfileView extends React.Component {
             .then((response) => {
                 console.log(response);
                 alert("Removed from favorites");
-                this.componentDidMount();
+                this.props.updateUser(response.data);
             })
             .catch(function (error) {
                 console.log(error);
@@ -119,6 +95,7 @@ class ProfileView extends React.Component {
                 alert("Profile deleted");
                 localStorage.removeItem('user');
                 localStorage.removeItem('token');
+                this.props.setUser(null);
                 window.open('/', '_self');
             })
             .catch(function (error) {
@@ -127,24 +104,24 @@ class ProfileView extends React.Component {
     }
 
     setUsername(value) {
-        this.state.Username = value;
+        this.Username = value;
       }
     
       setPassword(value) {
-        this.state.Password = value;
+        this.Password = value;
       }
     
       setEmail(value) {
-        this.state.Email = value;
+        this.Email = value;
       }
     
       setBirthday(value) {
-        this.state.Birthday = value;
+        this.Birthday = value;
       }
 
     render() {
         const { movies, onBackClick, user } = this.props;
-        const { FavoriteMovies, Username, Email, Birthdate } = this.state;
+        const { FavoriteMovies, Username, Email, Birthday } = user;
 
         if (!Username) {
             return null;
@@ -164,7 +141,7 @@ class ProfileView extends React.Component {
                                             this.Username,
                                             this.Password,
                                             this.Email,
-                                            this.Birthdate
+                                            this.Birthday
                                         )
                                     }
                                 >
@@ -209,7 +186,7 @@ class ProfileView extends React.Component {
                                         <Form.Control
                                             type="date"
                                             name="Birthday"
-                                            value={Birthdate}
+                                            value={Birthday}
                                             onChange={(e) => this.setBirthday(e.target.value)}
                                         />
                                     </Form.Group>
