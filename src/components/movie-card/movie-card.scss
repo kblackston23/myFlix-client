@@ -4,9 +4,9 @@ $background-color: #0d1a26;
 
 #movie-card {
   max-height: 675px;
-  max-width: 90%;
-  margin-top: 12px;
-  margin-bottom: 12px;
+  max-width: 100%;
+  min-width: 220px;
+  margin:12px;
 }
 
 #movie-image {

@@ -203,7 +203,7 @@ class ProfileView extends React.Component {
                     </Col>
                 </Row><br />
                 <Row>
-                    <Col md={5}>
+                    <Col md={12}>
                         <Card.Body>
                             {FavoriteMovies.length === 0 && (
                                 <div>No Favorite Movies</div>
@@ -216,9 +216,13 @@ class ProfileView extends React.Component {
                                             FavoriteMovies.find((fav) => fav === movie._id)
                                         ) {
                                             return (
-                                                <Card key={movie._id} >
+                                                <Card 
+                                                key={movie._id}
+                                                id="fav-card"
+                                                 >
                                                     <Card.Img
                                                         variant="top"
+                                                        id="fav-img"
                                                         src={movie.ImagePath}
                                                     />
                                                     <Card.Body>

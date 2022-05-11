@@ -110,11 +110,20 @@
 #header4 {
   margin-top: 15px;
 }
+
+#fav-img {
+  max-width: 200px;
+}
+
+#fav-card {
+  max-width: 200px;
+  margin: 5px;
+}
 #movie-card {
   max-height: 675px;
-  max-width: 90%;
-  margin-top: 12px;
-  margin-bottom: 12px;
+  max-width: 100%;
+  min-width: 220px;
+  margin: 12px;
 }
 
 #movie-image {
